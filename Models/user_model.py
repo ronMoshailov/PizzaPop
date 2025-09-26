@@ -1,4 +1,4 @@
-from Models.product import Product
+from Models.product_model import Product
 
 
 class User:

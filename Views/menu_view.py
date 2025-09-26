@@ -1,11 +1,11 @@
 import tkinter as tk
 
 class MenuView:
-    def __init__(self):
-        pass
+    def __init__(self, root):
+        self.root = root
 
-    def create_menu(self, root, top_bar_dict):
-        top_bar = tk.Frame(root, bg="#222222", height=50)  # רקע כהה
+    def create_menu(self, top_bar_dict):
+        top_bar = tk.Frame(self.root, bg="#222222", height=50)  # רקע כהה
         top_bar.pack(side="top", fill="x")
 
         for title, tuple_options in top_bar_dict.items():
