@@ -29,23 +29,46 @@ class MenuController:
     def close_app(self):
         self.menu_view.root.destroy()
 
-
     def display_user(self):
-        # יוצרים חלון חדש
         window = tk.Toplevel(self.menu_view.root)
         window.title("בדיקת לקוח")
-        window.geometry("300x150")
+        window.geometry("380x220")
+        window.configure(bg="#7a1c1c")  # רקע בורדו כמו רוטב עגבניות
 
-        # תווית
-        label = tk.Label(window, text="שם לקוח או מספר פלאפון:")
-        label.pack(pady=10)
+        # --- כותרת --- #
+        label = tk.Label(
+            window,
+            text="שם לקוח או מספר פלאפון:",
+            font=("Arial", 18, "bold"),
+            bg="#7a1c1c",
+            fg="white",
+            pady=10
+        )
+        label.pack(pady=(20, 10))
 
-        # תיבת טקסט
-        entry = tk.Entry(window)
-        entry.pack(pady=5)
+        # --- תיבת טקסט --- #
+        entry = tk.Entry(
+            window,
+            font=("Arial", 16),
+            bd=2,
+            relief="solid",
+            justify="center"
+        )
+        entry.pack(pady=5, ipadx=10, ipady=5)
 
-        button = tk.Button(window, text="בדוק", command=lambda : self.display_user_method(entry.get(), window))
-        button.pack(pady=10)
+        # --- כפתור בדיקה --- #
+        button = tk.Button(
+            window,
+            text="בדוק",
+            font=("Arial", 16, "bold"),
+            bg="#2a9d8f",  # ירקרק נעים
+            fg="white",
+            relief="raised",
+            padx=20,
+            pady=8,
+            command=lambda: self.display_user_method(entry.get(), window)
+        )
+        button.pack(pady=20)
 
     def display_order_entry_view(self):
         self.order_entry_view.show_window()

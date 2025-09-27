@@ -4,20 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e0baa20-1156-47e4-bba2-fb44f6a00011" name="Changes" comment="chage pc">
-      <change afterPath="$PROJECT_DIR$/Controllers/orders_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Draft/messagebox.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/order_model.py" afterDir="false" />
+    <list default="true" id="9e0baa20-1156-47e4-bba2-fb44f6a00011" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/main_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/main_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/menu_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/menu_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/top_frame_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/top_frame_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/order_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/order_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/user_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/user_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/users_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/users_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/bottom_frame_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/orders_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/data_window_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/all_data_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/menu_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/menu_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/all_data_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/all_data_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/order_entry_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/order_entry_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/orders_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/orders_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/top_frame_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/top_frame_view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -158,11 +154,20 @@
       <option name="project" value="LOCAL" />
       <updated>1758915004887</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update">
+      <option name="closed" value="true" />
+      <created>1758970783228</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1758970783228</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="chage pc" />
-    <option name="LAST_COMMIT_MESSAGE" value="chage pc" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>

@@ -14,8 +14,10 @@ class AllDataView:
                 text.insert("end", f"------------------------------\n")
                 text.insert("end", f"------ name: {user.full_name} ------\n")
                 text.insert("end", f"------ phone: {user.phone_number} ------\n")
+                text.insert("end", f"------ address: {user.address} ------\n")
                 for idx, order in enumerate(user.orders):
                     text.insert("end", f"----- order #{idx + 1} -----\n")
+                    text.insert("end", f"----- time #{order.time} -----\n")
                     for product in order.products:
                         text.insert("end", f"--- product: {product.name:<15}, qty: {product.quantity:<15} ---\n")
                     text.insert("end", "\n")

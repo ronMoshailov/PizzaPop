@@ -5,6 +5,7 @@ class TopFrameView:
         self.root = root
         self.phone_label = None
         self.name_label = None
+        self.address_label = None
 
     def create_top_frame(self):
         top_frame = tk.Frame(self.root, bg="#640300", height=60)  # אדום כהה תואם למנובר
@@ -13,7 +14,7 @@ class TopFrameView:
         # --- phone_label --- #
         self.phone_label = tk.Label(
             top_frame,
-            text="050-1234567",
+            text="מספר פלאפון",
             font=("Arial", 22, "bold"),
             bg="#460006",  # צבע רקע הכפתור
             fg="white",  # צבע טקסט
@@ -29,7 +30,7 @@ class TopFrameView:
         # --- name_label --- #
         self.name_label = tk.Label(
             top_frame,
-            text="יוסי כהן",
+            text="שם לקוח",
             font=("Arial", 22, "bold"),
             bg="#460006",  # צבע רקע הכפתור
             fg="white",  # צבע טקסט
@@ -42,10 +43,27 @@ class TopFrameView:
         )
         self.name_label.pack(side="right", padx=12, pady=10)
 
-    def update(self, full_name, phone_number):
+        self.address_label = tk.Label(
+            top_frame,
+            text="כתובת",
+            font=("Arial", 22, "bold"),
+            bg="#460006",  # צבע רקע הכפתור
+            fg="white",  # צבע טקסט
+            bd=0,
+            padx=20,
+            pady=10,
+            relief="flat",
+            highlightthickness=3,
+            highlightbackground="#bca918",  # קו גבול חום
+        )
+        self.address_label.pack(side="right", padx=12, pady=10)
+
+    def update(self, full_name, phone_number, address):
         self.phone_label.config(text=phone_number)
         self.name_label.config(text=full_name)
+        self.address_label.config(text=address)
 
     def clear(self):
         self.phone_label.config(text="מספר פלאפון")
         self.name_label.config(text="שם לקוח")
+        self.address_label.config(text="כתובת")

@@ -44,19 +44,20 @@ class MainController:
         if user is None:
             messagebox.showerror("שגיאה", "מספר הפלאפון לא נמצא")
             return
-        self.top_frame_controller.update_top_frame(user.full_name, user.phone_number)
+        self.top_frame_controller.update_top_frame(user.full_name, user.phone_number, user.address)
         self.orders_view.create(user)
         window.destroy()
 
     def clear_user(self):
         self.top_frame_controller.clear_user()
+        self.orders_view.clear()
 
-    def add_order(self, phone_number, product_dict, window):
+    def add_order(self, phone_number, product_dict, time, window):
         user = self.users_model.is_user_exist(phone_number)
         if user is None:
             messagebox.showerror("שגיאה", "מספר הפלאפון לא נמצא")
             return
-        new_order = Order()
+        new_order = Order(time)
         for name, quantity in product_dict.items():
             new_order.add_product(name, quantity)
         user.orders.append(new_order)

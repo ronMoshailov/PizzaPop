@@ -91,3 +91,8 @@ class OrdersView:
 
         scrollable_frame.update_idletasks()
         canvas.xview_moveto(1)
+
+    def clear(self):
+        if OrdersView.current_window is None:
+            return
+        OrdersView.current_window.destroy()
