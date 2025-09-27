@@ -1,42 +1,61 @@
 import tkinter as tk
+from tkinter import messagebox
 
 
 class OrderEntryView:
-    def __init__(self, root):
+    def __init__(self, root, add_order_method):
         self.root = root
 
-    def show_window(self, users_model):
-        self.products_buffer = []  # מאגר זמני של מוצרים
+        self.add_order_method = add_order_method
 
-        self.frame = tk.Toplevel(self.root)
-        # self.frame.pack(fill="x")
+    def show_window(self):
+        self.window = tk.Toplevel()
+        self.window.title("הזנת הזמנה חדשה")
 
-        # --- שדות לקוח --- #
-        tk.Label(self.frame, text="שם לקוח:").grid(row=0, column=0, sticky="w")
-        self.entry_name = tk.Entry(self.frame)
-        self.entry_name.grid(row=0, column=1)
+        self.products = {}
 
-        tk.Label(self.frame, text="מספר פלאפון:").grid(row=1, column=0, sticky="w")
-        self.entry_phone = tk.Entry(self.frame)
-        self.entry_phone.grid(row=1, column=1)
+        self.phone_label = tk.Label(self.window, text="מספר פלאפון של הלקוח:")
+        self.phone_label.pack(pady=5)
 
-        # --- שדות מוצר --- #
-        tk.Label(self.frame, text="שם מוצר:").grid(row=2, column=0, sticky="w")
-        self.entry_product = tk.Entry(self.frame)
-        self.entry_product.grid(row=2, column=1)
+        self.phone_entry = tk.Entry(self.window)
+        self.phone_entry.pack(pady=5)
 
-        tk.Label(self.frame, text="כמות:").grid(row=3, column=0, sticky="w")
-        self.entry_qty = tk.Entry(self.frame)
-        self.entry_qty.grid(row=3, column=1)
+        self.product_name_label = tk.Label(self.window, text="שם מוצר:")
+        self.product_name_label.pack(pady=5)
 
-        # --- כפתורים --- #
-        self.btn_add_product = tk.Button(self.frame, text="הוסף מוצר")
-        self.btn_add_product.grid(row=4, column=0, pady=5)
+        self.product_name_entry = tk.Entry(self.window)
+        self.product_name_entry.pack(pady=5)
 
-        self.btn_save_user = tk.Button(self.frame, text="שמור הזמנה")
-        self.btn_save_user.grid(row=4, column=1, pady=5)
+        self.quantity_label = tk.Label(self.window, text="כמות:")
+        self.quantity_label.pack(pady=5)
 
-    def clear_product_fields(self):
-        """מנקה את שדות המוצר"""
-        self.entry_product.delete(0, tk.END)
-        self.entry_qty.delete(0, tk.END)
+        self.quantity_entry = tk.Entry(self.window)
+        self.quantity_entry.pack(pady=5)
+
+        self.add_product_button = tk.Button(self.window, text="הוסף מוצר", command=self.add_product)
+        self.add_product_button.pack(pady=10)
+
+        self.products_listbox = tk.Listbox(self.window, width=50)
+        self.products_listbox.pack(pady=10)
+
+        self.submit_button = tk.Button(self.window, text="סיום ושלח", command= lambda: self.add_order_method(self.phone_entry.get().strip(), self.products, self.window))
+        self.submit_button.pack(pady=15)
+
+
+    def add_product(self):
+        name = self.product_name_entry.get().strip()
+        quantity = self.quantity_entry.get().strip()
+
+        if not name or not quantity:
+            messagebox.showwarning("שגיאה", "יש למלא שם מוצר וכמות.")
+            return
+
+        # שמירה לרשימה
+        self.products[name] = quantity
+
+        # הצגה ב־Listbox
+        self.products_listbox.insert(tk.END, f"{name} - {quantity}")
+
+        # ניקוי שדות להזנה נוספת
+        self.product_name_entry.delete(0, tk.END)
+        self.quantity_entry.delete(0, tk.END)

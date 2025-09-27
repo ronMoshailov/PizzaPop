@@ -2,18 +2,20 @@ import tkinter as tk
 from tkinter import ttk
 
 
-class BottomFrameView:
-    def __init__(self):
-        pass
+class OrdersView:
+    current_window = None
 
-    def create_order_frame(self, parent, order_id, items):
-        frame = ttk.Frame(parent, padding=10)
+    def __init__(self, root):
+        self.root = root
+
+    def _create_order_frame(self, scrollable_frame, idx, products):
+        frame = ttk.Frame(scrollable_frame, padding=10)
         frame.configure(style="OrderFrame.TFrame")
 
         # כותרת
         label = tk.Label(
             frame,
-            text=f"#{order_id} הזמנה",
+            text=f"#{idx} הזמנה",
             font=("Comic Sans MS", 28, "bold"),
             bg="#F4A261",
             fg="#6D2E00",
@@ -52,13 +54,19 @@ class BottomFrameView:
         scrollbar.pack(side="right", fill="y")
 
         # הכנסת מוצרים
-        for item_name, qty in items:
-            table.insert("", "end", values=(qty, item_name))
-
+        for product in products:
+            table.insert("", "end", values=(product.quantity, product.name))
         return frame
 
-    def create_bottom_frame(self, root, orders):
-        bottom_frame = ttk.Frame(root)
+    def create(self, user):
+        if OrdersView.current_window is not None:
+            try:
+                OrdersView.current_window.destroy()
+            except:
+                pass
+
+        bottom_frame = ttk.Frame(self.root)
+        OrdersView.current_window = bottom_frame
         bottom_frame.pack(side="top", fill="both", expand=True)
 
         canvas = tk.Canvas(bottom_frame, bg="#fc031a")
@@ -71,8 +79,9 @@ class BottomFrameView:
             scrollregion=canvas.bbox("all")))
 
         # הוספת הזמנות
-        for order_id, items in orders.items():
-            frame = self.create_order_frame(scrollable_frame, order_id, items)
+        for idx, order in enumerate(user.orders):
+            # for product in order.products:
+            frame = self._create_order_frame(scrollable_frame, idx, order.products)
             frame.pack(side="right", padx=(40, 0))
 
         canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")

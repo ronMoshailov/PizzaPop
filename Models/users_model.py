@@ -64,5 +64,6 @@ class Users:
         for user_info, order in person_orders.items():
             full_name, phone_number = user_info
             new_user = self.add_user(full_name, phone_number)
-            for product, quantity in order:
-                new_user.add_product(product, quantity)
+            new_user.add_order(order)
+            # for product, quantity in order:
+            #     new_user.add_product(product, quantity)

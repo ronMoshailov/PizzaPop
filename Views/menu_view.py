@@ -22,7 +22,7 @@ class MenuView:
                     bd=2,
                     padx=10,
                     pady=5,
-                    command=lambda: print("clear")  # פעולה של ה-CONTROLLER ניתן לחבר כאן
+                    command=lambda: tuple_options()  # פעולה של ה-CONTROLLER ניתן לחבר כאן
                 )
                 clear_button.pack(side="right", padx=5, pady=5)
                 continue  # ממשיך לאופציות אחרות
