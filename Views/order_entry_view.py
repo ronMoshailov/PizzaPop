@@ -126,7 +126,11 @@ class OrderEntryView:
         quantity = self.quantity_entry.get().strip()
 
         if not name or not quantity:
-            messagebox.showwarning("שגיאה", "יש למלא שם מוצר וכמות.")
+            messagebox.showerror("שגיאה", "יש למלא שם מוצר וכמות.", parent=self.window)
+            return
+
+        if not quantity.isdigit() or not int(quantity) >= 1:
+            messagebox.showerror("שגיאה", "הכמות צריכה להיות רק מספר שלם חיובי.", parent=self.window)
             return
 
         self.products[name] = quantity
