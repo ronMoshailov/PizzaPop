@@ -15,16 +15,3 @@ class User:
             new_order.add_product(product, quantity)
         self.orders.append(new_order)
 
-# def add_product(self, name, quantity):
-    #     for product in self.products:
-    #         if product.name == name:
-    #             print("product already exist in DB.")
-    #             return
-    #     self.products.append(Product(name, quantity))
-
-    # def remove_product(self, name, quantity):
-    #     for product in self.products:
-    #         if product.name == name:
-    #             self.products.remove(product)
-    #             return
-    #     print("Product doesn't exist in DB.")

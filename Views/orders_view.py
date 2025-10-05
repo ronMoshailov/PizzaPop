@@ -15,7 +15,7 @@ class OrdersView:
         # כותרת
         label = tk.Label(
             frame,
-            text=f"#{idx} הזמנה",
+            text=f"#{idx + 1} הזמנה",
             font=("Comic Sans MS", 28, "bold"),
             bg="#F4A261",
             fg="#6D2E00",

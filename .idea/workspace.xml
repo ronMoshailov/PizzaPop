@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e0baa20-1156-47e4-bba2-fb44f6a00011" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/Assets/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PizzaPop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PizzaPop.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/main_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/main_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/orders_controller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/order_entry_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/order_entry_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/menu_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/menu_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/user_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/user_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/users_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/users_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/orders_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/orders_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,12 +36,12 @@
     &quot;assignee&quot;: &quot;ronMoshailov&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/ronMoshailov/PizzaPop.git&quot;,
-    &quot;accountId&quot;: &quot;18d34b8d-e538-46bc-8ab1-50d21a493d6a&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/ronMoshailov/PizzaPop.git",
+    "accountId": "593f51f1-6dbb-47ca-9130-5ec38b512280"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -65,11 +70,11 @@
       <recent name="C:\Users\User\PycharmProjects\PizzaPop\Controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ron.MENORAH-RND\PycharmProjects\PizzaPop\Assets" />
+      <recent name="C:\Users\ron.MENORAH-RND\PycharmProjects\PizzaPop" />
       <recent name="C:\Users\User\PycharmProjects\PizzaPop\balagan" />
       <recent name="C:\Users\User\PycharmProjects\PizzaPop\Assets" />
       <recent name="C:\Users\User\PycharmProjects\PizzaPop\Images\background" />
-      <recent name="C:\Users\User\PycharmProjects\PizzaPop\Images" />
-      <recent name="C:\Users\User\PycharmProjects\PizzaPop" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -127,7 +132,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-9f8e2b94138c-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26094.141" />
+        <option value="bundled-python-sdk-657d8234b839-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.74" />
       </set>
     </attachedChunks>
   </component>
