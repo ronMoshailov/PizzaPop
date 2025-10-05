@@ -82,7 +82,7 @@ class OrdersView:
         for idx, order in enumerate(user.orders):
             # for product in order.products:
             frame = self._create_order_frame(scrollable_frame, idx, order.products)
-            frame.pack(side="right", padx=(40, 0))
+            frame.pack(side="left", padx=(40, 0))
 
         canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
         canvas.configure(xscrollcommand=scrollbar_x.set)

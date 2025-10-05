@@ -3,6 +3,7 @@ from tkinter import messagebox
 from Controllers.menu_controller import MenuController
 from Controllers.top_frame_controller import TopFrameController
 from Models.order_model import Order
+from Models.user_model import User
 from Models.users_model import Users
 from Views.all_data_view import AllDataView
 from Views.menu_view import MenuView
@@ -52,11 +53,11 @@ class MainController:
         self.top_frame_controller.clear_user()
         self.orders_view.clear()
 
-    def add_order(self, phone_number, product_dict, time, window):
+    def add_order(self, phone_number, name, product_dict, time, window):
         user = self.users_model.is_user_exist(phone_number)
         if user is None:
-            messagebox.showerror("שגיאה", "מספר הפלאפון לא נמצא", parent=window)
-            return
+            # user = User(name, phone_number)
+            user = self.users_model.add_user(name, phone_number)
         new_order = Order(time)
         for name, quantity in product_dict.items():
             new_order.add_product(name, quantity)
