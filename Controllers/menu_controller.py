@@ -52,8 +52,9 @@ class MenuController:
             font=("Arial", 16),
             bd=2,
             relief="solid",
-            justify="center"
+            justify="center",
         )
+        entry.insert(0, "0548348091")
         entry.pack(pady=5, ipadx=10, ipady=5)
 
         # --- כפתור בדיקה --- #

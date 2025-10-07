@@ -35,6 +35,12 @@ class OrderEntryView:
         self.phone_entry = tk.Entry(self.window, **entry_style)
         self.phone_entry.pack(pady=5, ipadx=10, ipady=5)
 
+        self.name_label = tk.Label(self.window, text="שם הלקוח:", **label_style)
+        self.name_label.pack(pady=5)
+
+        self.name_entry = tk.Entry(self.window, **entry_style)
+        self.name_entry.pack(pady=5, ipadx=10, ipady=5)
+
         # שם מוצר
         self.product_name_label = tk.Label(self.window, text="שם מוצר:", **label_style)
         self.product_name_label.pack(pady=5)
@@ -53,18 +59,18 @@ class OrderEntryView:
         time_frame = tk.Frame(self.window, bg="#7a1c1c")
         time_frame.pack(pady=10)
 
-        tk.Label(time_frame, text="שעה:", font=("Arial", 14, "bold"), bg="#7a1c1c", fg="white").grid(row=0, column=0, padx=5)
+        tk.Label(time_frame, text=":שעה", font=("Arial", 14, "bold"), bg="#7a1c1c", fg="white").grid(row=0, column=1, padx=5)
         self.hour_combo = ttk.Combobox(
             time_frame,
-            values=[f"{i:02d}" for i in range(24)],
+            values=[f"{i:02d}" for i in range(8, 24)],
             width=5,
             state="readonly",
             font=("Arial", 12)
         )
         self.hour_combo.current(0)
-        self.hour_combo.grid(row=0, column=1, padx=5)
+        self.hour_combo.grid(row=0, column=0, padx=5)
 
-        tk.Label(time_frame, text="דקות:", font=("Arial", 14, "bold"), bg="#7a1c1c", fg="white").grid(row=0, column=2, padx=5)
+        tk.Label(time_frame, text=":דקות", font=("Arial", 14, "bold"), bg="#7a1c1c", fg="white").grid(row=0, column=3, padx=5)
         self.minute_combo = ttk.Combobox(
             time_frame,
             values=[f"{i:02d}" for i in range(0, 60, 10)],
@@ -73,7 +79,7 @@ class OrderEntryView:
             font=("Arial", 12)
         )
         self.minute_combo.current(0)
-        self.minute_combo.grid(row=0, column=3, padx=5)
+        self.minute_combo.grid(row=0, column=2, padx=5)
 
         # --- כפתור הוספת מוצר --- #
         self.add_product_button = tk.Button(
@@ -114,6 +120,7 @@ class OrderEntryView:
             pady=10,
             command=lambda: self.add_order_method(
                 self.phone_entry.get().strip(),
+                self.name_entry.get().strip(),
                 self.products,
                 f"{self.hour_combo.get()}:{self.minute_combo.get()}",
                 self.window
@@ -126,7 +133,11 @@ class OrderEntryView:
         quantity = self.quantity_entry.get().strip()
 
         if not name or not quantity:
-            messagebox.showwarning("שגיאה", "יש למלא שם מוצר וכמות.")
+            messagebox.showerror("שגיאה", "יש למלא שם מוצר וכמות.", parent=self.window)
+            return
+
+        if not quantity.isdigit() or not int(quantity) >= 1:
+            messagebox.showerror("שגיאה", "הכמות צריכה להיות רק מספר שלם חיובי.", parent=self.window)
             return
 
         self.products[name] = quantity

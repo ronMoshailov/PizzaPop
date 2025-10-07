@@ -33,7 +33,7 @@ class MenuView:
                 text=title,
                 bg="#460006",  # צבע רקע הכפתור
                 fg="white",  # צבע טקסט
-                activebackground="#555555",  # רקע בעת ריחוף
+                activebackground="#ff0016",  # רקע בעת ריחוף
                 activeforeground="white",  # טקסט בעת ריחוף
                 font=("Arial", 14, "bold"),
                 relief="raised",
