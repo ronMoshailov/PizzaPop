@@ -1,3 +1,4 @@
+import re
 from tkinter import messagebox
 
 from Controllers.menu_controller import MenuController
@@ -39,10 +40,13 @@ class MainController:
         self.menu_controller.show_menu()
         self.top_frame_controller.show_top_frame()
 
-    def display_user(self, text, window):
-        user = self.users_model.is_user_exist(text)
+    def display_user(self, phone_number, window):
+        if not re.fullmatch(r"0\d{9}", phone_number):
+            messagebox.showerror("שגיאה", "מספר הפלאפון שגוי", parent=window)
+            return
+        user = self.users_model.is_user_exist(phone_number)
         if user is None:
-            messagebox.showerror("שגיאה", "מספר הפלאפון לא נמצא")
+            messagebox.showerror("שגיאה", "מספר הפלאפון לא נמצא", parent=window)
             return
         self.top_frame_controller.update_top_frame(user.full_name, user.phone_number, user.address)
         self.orders_view.create(user)
@@ -53,13 +57,17 @@ class MainController:
         self.orders_view.clear()
 
     def add_order(self, phone_number, product_dict, time, window):
+        # is
+        if not re.fullmatch(r"0\d{9}", phone_number):
+            messagebox.showerror("שגיאה", "מספר הפלאפון שגוי", parent=window)
+            return
         user = self.users_model.is_user_exist(phone_number)
         if user is None:
-            messagebox.showerror("שגיאה", "מספר הפלאפון לא נמצא")
+            messagebox.showerror("שגיאה", "מספר הפלאפון לא נמצא", parent=window)
             return
         new_order = Order(time)
         for name, quantity in product_dict.items():
             new_order.add_product(name, quantity)
         user.orders.append(new_order)
-        messagebox.showinfo("הודעה", "ההזמנה נוספה בהצלחה")
+        messagebox.showinfo("הודעה", "ההזמנה נוספה בהצלחה", parent=window)
         window.destroy()
