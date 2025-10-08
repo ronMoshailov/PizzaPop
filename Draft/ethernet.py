@@ -2,6 +2,7 @@ from scapy.all import sniff
 
 # data
 phone_ip = "192.168.15.12"
+pc_ip = "192.168.15.10"
 
 # פונקציה שתטפל בכל חבילה
 def handle_packet(pkt):
@@ -24,3 +25,5 @@ def handle_packet(pkt):
 
 # מתחיל לקלוט חבילות בזמן אמת
 sniff(filter=f"host {phone_ip} and udp port 5060", prn=handle_packet)
+
+# ((ip.src == 192.168.15.12 && ip.dst == 192.168.15.10) || (ip.src == 192.168.15.10 && ip.dst == 192.168.15.12))
