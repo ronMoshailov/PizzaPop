@@ -10,6 +10,7 @@ from Views.menu_view import MenuView
 from Views.order_entry_view import OrderEntryView
 from Views.orders_view import OrdersView
 from Views.top_frame_view import TopFrameView
+from Views.user_entry_view import UserEntryView
 
 
 class MainController:
@@ -26,9 +27,10 @@ class MainController:
         self.top_frame_view = TopFrameView(self.root)
         self.orders_view = OrdersView(self.root)
         self.order_entry_view = OrderEntryView(self.root, self.add_order)
+        self.user_entry_view = UserEntryView(self.root)
 
         # --- controllers --- #
-        self.menu_controller = MenuController(self.menu_view, self.all_data_view, self.order_entry_view, self.users_model, self.display_user, self.clear_user)
+        self.menu_controller = MenuController(self.menu_view, self.all_data_view, self.order_entry_view, self.user_entry_view, self.users_model, self.display_user, self.clear_user)
         self.top_frame_controller = TopFrameController(self.top_frame_view)
 
     # --- methods --- #
