@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e0baa20-1156-47e4-bba2-fb44f6a00011" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/Views/user_entry_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/main_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/main_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/menu_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/menu_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Draft/ethernet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Draft/ethernet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/user_entry_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/user_entry_view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +72,7 @@
       <recent name="C:\Users\User\PycharmProjects\PizzaPop" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.ethernet">
     <configuration name="ethernet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PizzaPop" />
       <option name="ENV_FILES" value="" />
@@ -166,8 +163,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.ethernet" />
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.scapy_check" />
         <item itemvalue="Python.messagebox" />
       </list>
@@ -221,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759912725026</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update">
+      <option name="closed" value="true" />
+      <created>1759931497387</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1759931497387</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
