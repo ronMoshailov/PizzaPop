@@ -12,3 +12,16 @@ class Order:
                     print("product already exist in DB.")
                     return
             self.products.append(Product(name, quantity))
+
+    def to_dict(self):
+        return {
+            "time": self.time,
+            "products": [p.to_dict() for p in self.products]
+        }
+
+    @staticmethod
+    def from_dict(data):
+        order = Order(data.get("time", "00:00"))
+        for p in data["products"]:
+            order.products.append(Product.from_dict(p))
+        return order

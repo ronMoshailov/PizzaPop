@@ -1,10 +1,12 @@
+import json
+
 from Models.user_model import User
 
 
 class Users:
     def __init__(self):
         self.users = []
-        self._load_data()
+        # self._load_data()
 
     def add_user(self, full_name, phone_number):
         for user in self.users:
@@ -107,3 +109,15 @@ class Users:
             new_user = self.add_user(full_name, phone_number)
             for order in order_list:
                 new_user.add_order(order)
+
+    def save_data(self):
+        with open(self.filename, "w", encoding="utf-8") as f:
+            json.dump([u.to_dict() for u in self.users], f, ensure_ascii=False, indent=4)
+
+    def load_data(self):
+        try:
+            with open(self.filename, "r", encoding="utf-8") as f:
+                users_list = json.load(f)
+                self.users = [User.from_dict(u) for u in users_list]
+        except FileNotFoundError:
+            self.users = []

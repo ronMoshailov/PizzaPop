@@ -58,15 +58,17 @@ class OrdersView:
             table.insert("", "end", values=(product.quantity, product.name))
         return frame
 
-    def create(self, user):
-        if OrdersView.current_window is not None:
-            try:
-                OrdersView.current_window.destroy()
-            except:
-                pass
+    def create(self, user, remove_last_view=True):
+        if remove_last_view:
+            if OrdersView.current_window is not None:
+                try:
+                    OrdersView.current_window.destroy()
+                except:
+                    pass
 
         bottom_frame = ttk.Frame(self.root)
-        OrdersView.current_window = bottom_frame
+        if remove_last_view:
+            OrdersView.current_window = bottom_frame
         bottom_frame.pack(side="top", fill="both", expand=True)
 
         canvas = tk.Canvas(bottom_frame, bg="#fc031a")
