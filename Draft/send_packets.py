@@ -34,7 +34,7 @@ try:
         send(pkt, verbose=False)
         print(f"send fake packet number {counter}")
         counter+=1
-        time.sleep(10)
+        time.sleep(3)
 
 except KeyboardInterrupt:
     print("\n[!] הופסק על ידי המשתמש.")

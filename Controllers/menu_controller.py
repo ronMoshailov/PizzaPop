@@ -17,7 +17,7 @@ class MenuController:
             # "ראשי": [("יציאה", self.close_app)],
             "הזמנות": [("הוסף הזמנה", self.display_order_entry_view), ("הצג פרטים", None), ("צפה בהיסטוריה", self.print_data)],
             "מידע": [("הצג לקוח", self.display_user), ("אופציה 3.2", None)],
-            "הגדרות": [("הראה כמות שורות", None), ("אופציה 3.2", None)],
+            # "הגדרות": [("הראה כמות שורות", None), ("אופציה 3.2", None)],
             "נקה": self.clear_user_method,
         }
         self.menu_view.create_menu(option_dict)

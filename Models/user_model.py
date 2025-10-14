@@ -3,10 +3,10 @@ from Models.order_model import Order
 
 
 class User:
-    def __init__(self, full_name, phone_number):
+    def __init__(self, full_name, phone_number, address):
         self.full_name = full_name
         self.phone_number = phone_number
-        self.address = "בן גוריון 870/13"
+        self.address = address
         self.orders = []
 
     def add_order(self, order):
