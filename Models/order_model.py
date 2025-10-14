@@ -2,9 +2,9 @@ from Models.product_model import Product
 
 
 class Order:
-    def __init__(self, time="00:00"):
+    def __init__(self):
         self.products = []
-        self.time = time
+        # self.time = time
 
     def add_product(self, name, quantity):
             for product in self.products:
@@ -15,13 +15,13 @@ class Order:
 
     def to_dict(self):
         return {
-            "time": self.time,
+            # "time": self.time,
             "products": [p.to_dict() for p in self.products]
         }
 
     @staticmethod
     def from_dict(data):
-        order = Order(data.get("time", "00:00"))
+        order = Order()
         for p in data["products"]:
             order.products.append(Product.from_dict(p))
         return order

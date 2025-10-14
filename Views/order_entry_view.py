@@ -15,7 +15,7 @@ class OrderEntryView:
 
         self.products = {}
 
-        # --- טקסט + שדות --- #
+        # --- style --- #
         label_style = {
             "font": ("Arial", 16, "bold"),
             "bg": "#7a1c1c",
@@ -29,16 +29,23 @@ class OrderEntryView:
             "relief": "solid"
         }
 
-        # phone_number
-        self.phone_label = tk.Label(self.window, text=":מספר פלאפון של הלקוח", **label_style)
-        self.phone_label.pack(pady=(15, 5))
+        # --- content --- #
+        form_frame = tk.Frame(self.window, bg="#7a1c1c")
+        form_frame.pack(fill="both", padx=20, pady=10)
 
-        self.phone_entry = tk.Entry(self.window, **entry_style)
-        self.phone_entry.pack(pady=5, ipadx=10, ipady=5)
+        form_frame.columnconfigure(0, weight=1) # weight -> label = 0, entry/button = 1
+        form_frame.columnconfigure(1, weight=0) # weight -> label = 0, entry/button = 1
 
-        # check user
+        # --- phone number --- #
+        self.phone_label = tk.Label(form_frame, text=":מספר פלאפון של הלקוח", **label_style, anchor="e")
+        self.phone_label.grid(row=0, column=1, sticky="e", padx=(0, 10), pady=5)
+
+        self.phone_entry = tk.Entry(form_frame, **entry_style)
+        self.phone_entry.grid(row=0, column=0, sticky="we", pady=5, ipady=4)
+
+        # --- check user button --- #
         self.check_user_button = tk.Button(
-            self.window,
+            form_frame,
             text="בדוק",
             font=("Arial", 16, "bold"),
             bg="#221de2",
@@ -46,67 +53,45 @@ class OrderEntryView:
             relief="raised",
             padx=15,
             pady=5,
-            command= lambda: self.get_user_method(self.phone_entry.get().strip(), self.window)  # הפונקציה שתתבצע בלחיצה
+            command=lambda: self.get_user_method(self.phone_entry.get().strip(), self.window)
         )
-        self.check_user_button.pack(pady=10)
+        self.check_user_button.grid(row=1, column=1, sticky="e", pady=5)
 
-        # name
-        self.name_label = tk.Label(self.window, text=":שם הלקוח", **label_style)
-        self.name_label.pack(pady=5)
+        # --- name --- #
+        self.name_label = tk.Label(form_frame, text=":שם הלקוח", **label_style, anchor="e")
+        self.name_label.grid(row=2, column=1, sticky="e", padx=(0, 10), pady=5)
 
-        self.name_entry = tk.Entry(self.window, **entry_style)
-        self.name_entry.pack(pady=5, ipadx=10, ipady=5)
+        self.name_entry = tk.Entry(form_frame, **entry_style)
+        self.name_entry.grid(row=2, column=0, sticky="we", pady=5, ipady=4)
 
-        # address
-        self.address_label = tk.Label(self.window, text=":כתובת", **label_style)
-        self.address_label.pack(pady=5)
+        # --- address --- #
+        self.address_label = tk.Label(form_frame, text=":כתובת", **label_style, anchor="e")
+        self.address_label.grid(row=3, column=1, sticky="e", padx=(0, 10), pady=5)
 
-        self.address_entry = tk.Entry(self.window, **entry_style)
-        self.address_entry.pack(pady=5, ipadx=10, ipady=5)
+        self.address_entry = tk.Entry(form_frame, **entry_style)
+        self.address_entry.grid(row=3, column=0, sticky="we", pady=5, ipady=4)
 
-        # product name
-        self.product_name_label = tk.Label(self.window, text=":שם מוצר", **label_style)
-        self.product_name_label.pack(pady=5)
+        # --- separator --- #
+        separator = ttk.Separator(form_frame, orient="horizontal")
+        separator.grid(row=4, column=0, columnspan=2, sticky="we", pady=10)
 
-        self.product_name_entry = tk.Entry(self.window, **entry_style)
-        self.product_name_entry.pack(pady=5, ipadx=10, ipady=5)
+        # --- product name --- #
+        self.product_name_label = tk.Label(form_frame, text=":שם מוצר", **label_style, anchor="e")
+        self.product_name_label.grid(row=5, column=1, sticky="e", padx=(0, 10), pady=5)
 
-        # quantity
-        self.quantity_label = tk.Label(self.window, text=":כמות", **label_style)
-        self.quantity_label.pack(pady=5)
+        self.product_name_entry = tk.Entry(form_frame, **entry_style)
+        self.product_name_entry.grid(row=5, column=0, sticky="we", pady=5, ipady=4)
 
-        self.quantity_entry = tk.Entry(self.window, **entry_style)
-        self.quantity_entry.pack(pady=5, ipadx=10, ipady=5)
+        # --- quantity --- #
+        self.quantity_label = tk.Label(form_frame, text=":כמות", **label_style, anchor="e")
+        self.quantity_label.grid(row=6, column=1, sticky="e", padx=(0, 10), pady=5)
 
-        # --- זמן אספקה --- #
-        # time_frame = tk.Frame(self.window, bg="#7a1c1c")
-        # time_frame.pack(pady=10)
-        #
-        # tk.Label(time_frame, text=":שעה", font=("Arial", 14, "bold"), bg="#7a1c1c", fg="white").grid(row=0, column=1, padx=5)
-        # self.hour_combo = ttk.Combobox(
-        #     time_frame,
-        #     values=[f"{i:02d}" for i in range(8, 24)],
-        #     width=5,
-        #     state="readonly",
-        #     font=("Arial", 12)
-        # )
-        # self.hour_combo.current(0)
-        # self.hour_combo.grid(row=0, column=0, padx=5)
-        #
-        # tk.Label(time_frame, text=":דקות", font=("Arial", 14, "bold"), bg="#7a1c1c", fg="white").grid(row=0, column=3, padx=5)
-        # self.minute_combo = ttk.Combobox(
-        #     time_frame,
-        #     values=[f"{i:02d}" for i in range(0, 60, 10)],
-        #     width=5,
-        #     state="readonly",
-        #     font=("Arial", 12)
-        # )
-        # self.minute_combo.current(0)
-        # self.minute_combo.grid(row=0, column=2, padx=5)
+        self.quantity_entry = tk.Entry(form_frame, **entry_style)
+        self.quantity_entry.grid(row=6, column=0, sticky="we", pady=5, ipady=4)
 
-        # --- כפתור הוספת מוצר --- #
+        # --- add product button --- #
         self.add_product_button = tk.Button(
-            self.window,
+            form_frame,
             text="➕ הוסף מוצר",
             font=("Arial", 16, "bold"),
             bg="#e63946",
@@ -116,11 +101,11 @@ class OrderEntryView:
             pady=5,
             command=self.add_product
         )
-        self.add_product_button.pack(pady=10)
+        self.add_product_button.grid(row=7, column=1, sticky="e", pady=10)
 
-        # --- רשימת מוצרים --- #
+        # --- products list box --- #
         self.products_listbox = tk.Listbox(
-            self.window,
+            form_frame,
             width=40,
             height=8,
             font=("Arial", 14),
@@ -129,11 +114,11 @@ class OrderEntryView:
             bd=2,
             relief="solid"
         )
-        self.products_listbox.pack(pady=10)
+        self.products_listbox.grid(row=8, column=0, columnspan=2, sticky="we", pady=10)
 
-        # --- כפתור שליחה --- #
+        # --- submit button --- #
         self.submit_button = tk.Button(
-            self.window,
+            form_frame,
             text="✅ סיום ושלח",
             font=("Arial", 18, "bold"),
             bg="#2a9d8f",
@@ -146,11 +131,10 @@ class OrderEntryView:
                 self.name_entry.get().strip(),
                 self.address_entry.get().strip(),
                 self.products,
-                # f"{self.hour_combo.get().strip()}:{self.minute_combo.get().strip()}",
                 self.window
             )
         )
-        self.submit_button.pack(pady=15)
+        self.submit_button.grid(row=9, column=0, columnspan=2, pady=15)
 
     def add_product(self):
         name = self.product_name_entry.get().strip()
