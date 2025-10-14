@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9e0baa20-1156-47e4-bba2-fb44f6a00011" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Draft/send_packets.py" beforeDir="false" afterPath="$PROJECT_DIR$/Draft/send_packets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/order_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/order_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/all_data_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/all_data_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/order_entry_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/order_entry_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/user_entry_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/user_entry_view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +199,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
+        <option value="bundled-python-sdk-9f8e2b94138c-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26094.141" />
       </set>
     </attachedChunks>
   </component>
@@ -263,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760000244723</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update">
+      <option name="closed" value="true" />
+      <created>1760434717838</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1760434717838</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

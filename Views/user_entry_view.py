@@ -11,40 +11,52 @@ class UserEntryView:
     def create_user_entry_frame(self, display_user_method):
         window = tk.Toplevel(self.root)
         window.title("בדיקת לקוח")
-        window.geometry("380x220")
-        window.configure(bg="#7a1c1c")  # רקע בורדו כמו רוטב עגבניות
+        window.geometry("400x150")
+        window.configure(bg="#7a1c1c")  # רקע בורדו
 
-        label = tk.Label(
-            window,
-            text="שם לקוח או מספר פלאפון:",
-            font=("Arial", 18, "bold"),
-            bg="#7a1c1c",
-            fg="white",
-            pady=10
-        )
-        label.pack(pady=(20, 10))
+        # --- מסגרת לשדות --- #
+        frame = tk.Frame(window, bg="#7a1c1c")
+        frame.pack(fill="both", expand=True, padx=20, pady=20)
 
-        # --- תיבת טקסט --- #
+        # הגדרת עמודות
+        # הגדרת עמודות
+        frame.columnconfigure(0, weight=1)  # Entry יתפשט לרוחב
+        frame.columnconfigure(1, weight=0)  # Label לא יתפשט
+
+        # --- Entry --- #
         entry = tk.Entry(
-            window,
+            frame,
             font=("Arial", 16),
             bd=2,
             relief="solid",
-            justify="center",
+            justify="right"  # מימין לשמאל
         )
-        entry.insert(0, "0548348091")
-        entry.pack(pady=5, ipadx=10, ipady=5)
+        entry.grid(row=0, column=0, sticky="we", ipady=4)
+        entry.icursor(tk.END)  # הסמן מתחיל בצד ימין
 
-        # --- כפתור בדיקה --- #
+        # --- Label --- #
+        label = tk.Label(
+            frame,
+            text=":מספר פלאפון",
+            font=("Arial", 18, "bold"),
+            bg="#7a1c1c",
+            fg="white",
+            pady=5,
+            anchor="e"
+        )
+        label.grid(row=0, column=1, sticky="e", padx=(10, 0))
+
+        # --- Button --- #
         button = tk.Button(
-            window,
+            frame,
             text="בדוק",
             font=("Arial", 16, "bold"),
-            bg="#2a9d8f",  # ירקרק נעים
+            bg="#2a9d8f",
             fg="white",
             relief="raised",
             padx=20,
             pady=8,
             command=lambda: display_user_method(entry.get(), window)
         )
-        button.pack(pady=20)
+        button.grid(row=1, column=0, columnspan=2, sticky="ew", pady=(10, 0))
+
